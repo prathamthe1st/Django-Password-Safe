@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-rps_9$!p$gcpkozk%9s0_csau%ulsr^jxz@*58_wx5-pmx6_6+
 DEBUG = True
 
 ALLOWED_HOSTS = []
+AUTH_USER_MODEL = 'user.User'
 
 
 # Application definition
