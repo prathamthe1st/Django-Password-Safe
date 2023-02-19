@@ -8,7 +8,7 @@ from .manager import UserManager
 
 
 
-
+#  custom user model
 class User(AbstractUser):
     username = None
     email = models.EmailField( unique=True)

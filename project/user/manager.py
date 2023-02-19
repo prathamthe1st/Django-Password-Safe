@@ -1,5 +1,7 @@
 from django.contrib.auth.base_user import BaseUserManager
 
+
+# seperate user manager to manage user and superuser
 class UserManager(BaseUserManager):
     use_in_migrations = True
 

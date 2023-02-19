@@ -3,6 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializer import *
 
+
+# function to register a user and give response via api
 class RegisterAPI(APIView):
 
     def post(self, request):
@@ -16,9 +18,12 @@ class RegisterAPI(APIView):
                     'message' : 'Email sent, check inbox!',
                     'data' : serializer.data,
                 })
-        except:
             return Response({
                 'status' : 400,
                 'message' : 'something went wrong',
                 'data' : serializer.errors
             })
+
+        except Exception as e:
+            print(e)
+            
