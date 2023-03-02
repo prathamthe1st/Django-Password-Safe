@@ -3,6 +3,7 @@ from django.urls import path, include
 from user.views import *
 
 urlpatterns = [
-    path('register/', RegisterAPI.as_view()),
-    path('verify/', VerifyOTP.as_view())
+    # path('register/', RegisterAPI.as_view()),
+    path('verify/', VerifyOTP.as_view()),
+    path('registerfbv/', Register, name="register")
 ]

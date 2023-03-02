@@ -7,10 +7,33 @@ from .emails import *
 
 
 # class to register a user and give response via api
-class RegisterAPI(APIView):
+# class RegisterAPI(APIView):
+#     def post(self, request):
+#         try:
+#             data = request.data
+#             serializer = UserSerializer(data = data)
+#             if serializer.is_valid():
+#                 serializer.save()
+#                 send_otp(serializer.data['email'])
+#                 return Response({
+#                     'status' : 200,
+#                     'message' : 'Email sent, check inbox!',
+#                     'data' : serializer.data,
+#                 })
+#             return Response({
+#                 'status' : 400,
+#                 'message' : 'something went wrong',
+#                 'data' : serializer.errors
+#             })
 
-    def post(self, request):
-        try:
+#         except Exception as e:
+#             print(e)
+
+
+# function based view for user registration
+@api_view(['POST'])
+def Register(request):
+    try:
             data = request.data
             serializer = UserSerializer(data = data)
             if serializer.is_valid():
@@ -27,12 +50,10 @@ class RegisterAPI(APIView):
                 'data' : serializer.errors
             })
 
-        except Exception as e:
-            print(e)
+    except Exception as e:
+        print(e)
 
-
-# function based view for user registration
-# @api_view(['POST'])
+    return render(request, 'register.html')
 
 
 # verifying otp from user
